@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- template build file used by gwt:applicationCreator -->
+
+<project name="@PROJECT@" default="compile" basedir="."
+  xmlns:gwt="antlib:de.samaflost.gwttasks">
+
+  <target name="setup">
+    <mkdir dir="bin"/>
+  </target>
+
+  <target name="compile" depends="setup">
+    <javac srcdir="src" destdir="bin"
+      debug="on"
+      source="1.4" target="1.4">
+      <classpath>
+        <pathelement location="@GWT_HOME@/gwt-user.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="gwt-compile" depends="compile">
+    <gwt:compile outDir="@OUT@" gwtHome="@GWT_HOME@"
+      classBase="@CLASS_BASE@"/>
+  </target>
+
+  <target name="gwt-shell" depends="compile">
+    <gwt:shell outDir="@OUT@" gwtHome="@GWT_HOME@"
+      startPage="@CLASS_BASE@/@PROJECT@.html"/>
+  </target>
+
+  <target name="package-src">
+    <zip destfile="@PROJECT@-src.zip" basedir="src"/>
+  </target>
+
+  <target name="package-bin" depends="compile">
+    <zip destfile="@PROJECT@-bin.zip" basedir="bin"/>
+  </target>
+
+  <target name="package-@OUT@">
+    <zip destfile="@PROJECT@-www.zip" basedir="@OUT@"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="@OUT@"/>
+    <delete dir="bin"/>
+    <delete dir="." includes="@PROJECT@-*.zip"/>
+  </target>
+</project>
+
