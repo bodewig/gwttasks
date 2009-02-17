@@ -55,11 +55,12 @@
     <attribute name="dir" default="."/>
     <attribute name="gwtHome"/>
     <attribute name="classBase"/>
+    <attribute name="sourcedir" default="src"/>
     <sequential>
       <java classname="com.google.gwt.dev.GWTCompiler" fork="true"
         dir="@{dir}" failOnError="true">
         <classpath>
-          <pathelement location="src"/>
+          <pathelement location="@{sourcedir}"/>
           <fileset dir="@{gwtHome}" includes="*.jar"/>
         </classpath>
         <arg value="-out"/>
@@ -74,12 +75,16 @@
     <attribute name="dir" default="."/>
     <attribute name="gwtHome"/>
     <attribute name="startPage"/>
+    <attribute name="sourcedir" default="src"/>
+    <attribute name="bindir" default="bin"/>
+	
     <sequential>
       <java classname="com.google.gwt.dev.GWTShell" fork="true"
         dir="@{dir}" failOnError="true">
         <classpath>
-          <pathelement location="src"/>
-          <pathelement location="bin"/>
+          <pathelement location="@{sourcedir}"/>
+          <pathelement location="@{bindir}"/>
+
           <fileset dir="@{gwtHome}" includes="*.jar"/>
         </classpath>
         <arg value="-out"/>
