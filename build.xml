@@ -6,7 +6,8 @@
     <property name="build.classes" value="${build}/classes"/>
     <property name="build.testclasses" value="${build}/test-classes"/>
     <property name="build.lib" value="${build}/lib"/>
-    <property name="jarname" value="${build.lib}/${ant.project.name}.jar"/>
+    <property name="version" value="0.2"/>
+    <property name="jarname" value="${build.lib}/${ant.project.name}-${version}.jar"/>
   </target>
 
   <target name="setup" depends="setup-properties">
