@@ -77,7 +77,7 @@
     <attribute name="startPage"/>
     <attribute name="sourcedir" default="src"/>
     <attribute name="bindir" default="bin"/>
-	
+
     <sequential>
       <java classname="com.google.gwt.dev.GWTShell" fork="true"
         dir="@{dir}" failOnError="true">

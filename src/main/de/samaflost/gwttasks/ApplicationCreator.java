@@ -74,7 +74,7 @@ public class ApplicationCreator extends Task {
             throw new BuildException("applicationCreator failed", e);
         }
     }
-        
+
     private void executeApplicationCreator() throws IOException {
         Commandline cmd = new Commandline();
         String executable =

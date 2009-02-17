@@ -18,10 +18,10 @@
 
   <target name="compile" depends="setup">
     <javac 
-      srcdir="src/main"
-      destdir="${build.classes}"
-      debug="true"
-      />
+       srcdir="src/main"
+       destdir="${build.classes}"
+       debug="true"
+       />
   </target>
 
   <target name="antlib" depends="compile">
@@ -29,11 +29,11 @@
       <fileset dir="src/main" includes="**/antlib.xml"/>
     </copy>
     <copy todir="${build.classes}/de/samaflost/gwttasks"
-      file="src/resources/build.xml"/>
+          file="src/resources/build.xml"/>
     <jar 
-      destfile="${jarname}"
-      basedir="${build.classes}"
-      />
+       destfile="${jarname}"
+       basedir="${build.classes}"
+       />
   </target>
 
   <target name="clean" depends="setup-properties">
